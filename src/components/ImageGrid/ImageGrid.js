@@ -14,9 +14,20 @@ class ImageGrid extends Component {
         this.props.loadImages();
     }
 
+
     render() {
-        //const { images } = this.state;
         const { isLoading, images, loadImages, error, imageStats } = this.props;
+
+        const handleClick = (event) => {
+            const downloadLink = document.createElement('a');
+            downloadLink.href = event.target.src;
+            downloadLink.target = "_blank"
+            downloadLink.download = 'downloaded_image.jpg';
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        };
+
         return (
             <div className="content">
                 <section className="grid">
@@ -27,11 +38,16 @@ class ImageGrid extends Component {
                                 image.height / image.width,
                             )}`}
                         >
+                            <span className="likes">
+                                {`👍 ${image.likes}`}
+                            </span>
                             <Stats stats={imageStats[image.id]} />
                             <img
                                 src={image.urls.small}
                                 alt={image.user.username}
+                                onClick={handleClick}
                             />
+                            <div class="text-overlay">Click To Download</div>
                         </div>
                     ))}
                 </section>

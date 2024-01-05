@@ -30,6 +30,23 @@ img {
     border-radius: 2px;
 }
 
+.text-overlay {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.item:hover .text-overlay {
+    opacity: 1;
+}
+
+.item:hover img {
+    cursor: pointer;
+}
+
 .item-1 {
     grid-row: span 1;
 }
