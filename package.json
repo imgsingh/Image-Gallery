@@ -1,7 +1,7 @@
 {
   "name": "image-gallery",
   "version": "0.1.0",
-  "homepage": "https://imgsingh.github.io/gallery",
+  "homepage": "https://imgsingh.github.io/Image-Gallery",
   "private": true,
   "dependencies": {
     "react": "^16.4.2",
